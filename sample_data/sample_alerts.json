@@ -1,0 +1,62 @@
+{
+  "receiver": "triage-agent-webhook",
+  "status": "firing",
+  "alerts": [
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "HighErrorRate",
+        "service": "app-api",
+        "severity": "critical",
+        "namespace": "api-services"
+      },
+      "annotations": {
+        "summary": "APP API error rate above 5% for 5m",
+        "description": "5xx rate on app-api has been above 5% for the last 5 minutes. Latest sample: 8.3%. Correlates with a deploy 12 minutes ago (rev a1b2c3d)."
+      },
+      "startsAt": "2026-07-02T14:02:00Z"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "SpireAgentCertExpirySoon",
+        "service": "spire-agent",
+        "severity": "high",
+        "namespace": "spiffe-system"
+      },
+      "annotations": {
+        "summary": "SPIRE agent SVID expiring in under 24h on 3 nodes",
+        "description": "3 nodes in the eks-prod-us-east-1 cluster have SPIRE agent SVIDs expiring in under 24 hours. Rotation job last succeeded 6 days ago."
+      },
+      "startsAt": "2026-07-02T13:40:00Z"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "RateLimiterHighLatencyP99",
+        "service": "rate-limit-service",
+        "severity": "medium",
+        "namespace": "rls-service"
+      },
+      "annotations": {
+        "summary": "P99 latency above 300ms",
+        "description": "P99 latency for rate-limit-service has been 310-340ms for 15 minutes, above the 300ms SLO threshold. No recent deploys. CPU and memory are within normal range."
+      },
+      "startsAt": "2026-07-02T13:20:00Z"
+    },
+    {
+      "status": "firing",
+      "labels": {
+        "alertname": "CertManagerRenewalFailed",
+        "service": "cert-manager",
+        "severity": "low",
+        "namespace": "kube-system"
+      },
+      "annotations": {
+        "summary": "Certificate renewal failed for internal-dashboard-tls",
+        "description": "cert-manager failed to renew internal-dashboard-tls once. Certificate is still valid for 18 more days. Will retry automatically."
+      },
+      "startsAt": "2026-07-02T12:55:00Z"
+    }
+  ]
+}
